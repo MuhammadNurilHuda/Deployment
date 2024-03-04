@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Attack Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div>
+        <h1>Input Data:</h1>
+        <form action="{{ url_for('predict')}}" method="POST">
+            <label for="age">Age: </label>
+            <input type="number" id="age" name="age" required min="0"><br>
+            <br>
+            <label for="sex">Gender: </label><br>
+            <input type="radio" id="male" name="sex" value="1" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="0" required>
+            <label for="female">Female</label><br>
+            <br>
+            <label for="cp">Chest Pain Type (cp): </label><br>
+            <input type="radio" id="typical" name="cp" value="1" required>
+            <label for="typical">Typical Angina</label>
+            <input type="radio" id="atypical" name="cp" value="2" required>
+            <label for="atypical">Atypical Angina</label><br>
+            <input type="radio" id="non-anginal" name="cp" value="3" required>
+            <label for="non-anginal">Non-Anginal</label>
+            <input type="radio" id="asymptomatic" name="cp" value="0" required>
+            <label for="asymptomatic">Asymptomatic</label><br>
+            <br>
+            <label for="trtbps">Resting Blood Pressure (trtbps): </label>
+            <input type="number" id="trtbps" name="trtbps" required min="0"><br>
+            <br>
+            <label for="chol">Serum Cholesterol (chol): </label>
+            <input type="number" id="'chol" name="chol" required min="0"><br>
+            <br>
+            <label for="fbs">Fasting  Blood Sugar (fbs) > 120 mg/dl: </label>
+            <input type="radio" id="yes" name="fbs" value="1" required>
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="fbs" value="0" required>
+            <label for="no">No</label><br>
+            <br>
+            <label for="restecg">Resting Electrocardiographic Results (rest_ecg): </label><br>
+            <input type="radio" id="normal" name="restecg" value="1" required>
+            <label for="normal">Normal</label>
+            <input type="radio" id="abnormal" name="restecg" value="2" required>
+            <label for="abnormal">Having ST-T Wave Abnormality</label>
+            <input type="radio" id="hypertrophy" name="restecg" value="0" required>
+            <label for="hypertrophy">Hypertrophy</label><br>
+            <br>
+            <label for="thalachh">Maximum Heart Rate Achieved (thalach): </label>
+            <input type="number" id="thalachh" name="thalachh" required min="0"><br>
+            <br>
+            <label for="exng">Exercise Induced Angina (exng):</label>
+            <input type="radio" id="yes" name="exng" value="1" required>
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="exng" value="0" required>
+            <label for="no">No</label><br>
+            <br>
+            <label for="oldpeak">Oldpeak: </label>
+            <input type="number" id="oldpeak" name="oldpeak" required step="any" min="0"><br>
+            <br>
+            <label for="slp">Slope of the Peak Exercise ST Segment (slp) :</label><br>
+            <input type="radio" id="upsloping" name="slp" value="2" required>
+            <label for="upsloping">Upsloping</label>
+            <input type="radio" id="flat" name="slp" value="1" required>
+            <label for="flat">Flat</label>
+            <input type="radio" id="downsloping" name="slp" value="0" required>
+            <label for="downsloping">Downsloping</label><br>
+            <br>
+            <label for="caa">Number of Major Vessels Colored by Fluoroscopy (caa) 0-3:</label>
+            <input type="number" id="caa" name="caa" required min="0" max="3"><br>
+            <br>
+            <label for="thall">Thall: </label><br>
+            <input type="radio" id="normal" name="thall" value="2" required>
+            <label for="normal">Normal</label>
+            <input type="radio" id="fixed" name="thall" value="1" required>
+            <label for="fixed">Fixed Defect</label>
+            <input type="radio" id="reversable" name="thall" value="3" required>
+            <label for="reversable">Reversable Defect</label>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+            <br>
+            <br>
+        </form>
+        <h2> {{prediction}}</h2>
+    </div>
+</body>
+</html>
